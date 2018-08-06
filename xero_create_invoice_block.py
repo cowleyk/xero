@@ -26,7 +26,7 @@ class XeroCreateInvoice(Block):
     line_items = ObjectProperty(LineItems,
                               title='Invoice Line Item',
                               default={})
-    version = VersionProperty('0.1.0')
+    version = VersionProperty("0.1.3")
     consumer_key = StringProperty(title='Xero Consumer Key',
                                   default='[[XERO_CONSUMER_KEY]]',
                                   allow_none=False)
@@ -42,7 +42,7 @@ class XeroCreateInvoice(Block):
         super().configure(context)
 
         con_key = self.consumer_key()
-        with open('blocks/xero/privatekey.pem') as keyfile:
+        with open('blocks/xero/keys/privatekey.pem') as keyfile:
             rsa_private_key = keyfile.read()
 
         self.credentials = PrivateCredentials(con_key, rsa_private_key)

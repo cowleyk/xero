@@ -1,1 +1,1 @@
-pyxero
+pyxero~=0.9.0
